@@ -3,8 +3,8 @@
 
 ### 1. Python
 
-**Runtime:** `47 ms` faster than `89.08%` submissions
-**Memory usage:** `16.6 MB` less than `60.39%` submissions
+**Runtime:** `47 ms` faster than `89.08%` submissions  
+**Memory usage:** `16.6 MB` less than `60.39%` submissions  
 
 ``` python
 def longest_substring_length(s: str) -> int:
@@ -24,8 +24,8 @@ def longest_substring_length(s: str) -> int:
 
 ### 2. TypeScript
 
-**Runtime:** `62 ms` faster than `99.62%` submissions
-**Memory usage:** `54.4 MB` less than `84.19%` submissions
+**Runtime:** `62 ms` faster than `99.62%` submissions  
+**Memory usage:** `54.4 MB` less than `84.19%` submissions  
 
 ``` typescript
 function longestSubstringLength(s: string): number {
@@ -48,8 +48,8 @@ function longestSubstringLength(s: string): number {
 
 ### 3. GO
 
-**Runtime:** `3 ms` faster than `89.79%` submissions
-**Memory usage:** `2.8 MB` less than `87.90%` submissions
+**Runtime:** `3 ms` faster than `89.79%` submissions  
+**Memory usage:** `2.8 MB` less than `87.90%` submissions  
 
 ``` go
 func longestSubstringLength(s string) int {
@@ -77,8 +77,8 @@ func longestSubstringLength(s string) int {
 
 ### 4. Java
 
-**Runtime:** `3 ms` faster than `90.48%%` submissions
-**Memory usage:** `43.4 MB` less than `87.57%` submissions
+**Runtime:** `3 ms` faster than `90.48%%` submissions  
+**Memory usage:** `43.4 MB` less than `87.57%` submissions  
 
 ``` java
 import java.util.Arrays;

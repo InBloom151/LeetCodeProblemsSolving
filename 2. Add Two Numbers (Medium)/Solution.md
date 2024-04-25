@@ -15,8 +15,8 @@
 
 ### 1. Python
 
-**Runtime:** `50 ms` faster than `83.06%` submissions
-**Memory usage:** `16.6 MB` less than `48.76%` submissions
+**Runtime:** `50 ms` faster than `83.06%` submissions  
+**Memory usage:** `16.6 MB` less than `48.76%` submissions  
 
 ``` python
 from typing import Optional
@@ -49,8 +49,8 @@ def addTwoNumbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[Li
 
 ### 2. TypeScript
 
-**Runtime:** `101 ms` faster than `92.51%` submissions
-**Memory usage:** `57.4 MB` less than `62.35%` submissions
+**Runtime:** `101 ms` faster than `92.51%` submissions  
+**Memory usage:** `57.4 MB` less than `62.35%` submissions  
 
 ``` typescript
 class ListNodeClass {
@@ -89,8 +89,8 @@ function addTwoNumbers(l1: ListNodeClass | null, l2: ListNodeClass | null): List
 
 ### 3. GO
 
-**Runtime:** `4 ms` faster than `85.34%` submissions
-**Memory usage:** `4.5 MB` less than `14.36%` submissions
+**Runtime:** `4 ms` faster than `85.34%` submissions  
+**Memory usage:** `4.5 MB` less than `14.36%` submissions  
 
 ``` go
 type ListNode struct {
@@ -125,8 +125,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 ### 4. Java
 
-**Runtime:** `1 ms` faster than `100.00%%` submissions
-**Memory usage:** `44.6 MB` less than `19.14%` submissions
+**Runtime:** `1 ms` faster than `100.00%%` submissions  
+**Memory usage:** `44.6 MB` less than `19.14%` submissions  
 
 ``` java
 class ListNode {
