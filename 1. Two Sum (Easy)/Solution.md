@@ -11,7 +11,7 @@
 
 ### 1. Python
 
-**Runtime:** `30 ms`
+**Runtime:** `30 ms`  
 **Memory usage:** `12.5 MB`
 
 ``` python
@@ -31,7 +31,7 @@ def twoSum(nums: List[int], target: int) -> List[int]:
 
 ### 2. TypeScript
 
-**Runtime:** `57 ms`
+**Runtime:** `57 ms`  
 **Memory usage:** `52.3 MB`
 
 ``` typescript
@@ -53,7 +53,7 @@ function twoSum(nums: number[], target: number): number[] {
 
 ### 3. GO
 
-**Runtime:** `6 ms`
+**Runtime:** `6 ms`  
 **Memory usage:** `4.2 MB`
 
 ``` go
@@ -74,7 +74,7 @@ func twoSum(nums []int, target int) []int {
 
 ### 4. Java
 
-**Runtime:** `3 ms`
+**Runtime:** `3 ms`  
 **Memory usage:** `44.7 MB`
 
 ``` java
