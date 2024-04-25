@@ -6,9 +6,9 @@ Given a string `s`, find the length of the **longest substring** without repeati
 
 <pre>
 <code>
-<b>Input: s = "abcabcbb"</b>
-<b>Output: 3</b>
-<b>Explanation: The answer is "abc", with the length of 3.</b>
+<b>Input:</b> s = "abcabcbb"
+<b>Output:</b> 3
+<b>Explanation:</b> The answer is "abc", with the length of 3.
 </code>
 </pre>
 
@@ -16,9 +16,9 @@ Given a string `s`, find the length of the **longest substring** without repeati
 
 <pre>
 <code>
-<b>Input: s = "bbbbb"</b>
-<b>Output: 1</b>
-<b>Explanation: The answer is "b", with the length of 1.</b>
+<b>Input:</b> s = "bbbbb"
+<b>Output:</b> 1
+<b>Explanation:</b> The answer is "b", with the length of 1.
 </code>
 </pre>
 
@@ -26,9 +26,9 @@ Given a string `s`, find the length of the **longest substring** without repeati
 
 <pre>
 <code>
-<b>Input: s = "pwwkew"</b>
-<b>Output: 3</b>
-<b>Explanation: The answer is "wke", with the length of 3.</b>
+<b>Input:</b> s = "pwwkew"
+<b>Output:</b> 3
+<b>Explanation:</b> The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 </code>
 </pre>
