@@ -11,8 +11,8 @@ You can return the answer in any order.
 <pre>
 <code>
 <b>Input</b>: nums = [2,7,11,15], target = 9
-<b>Output<b>: [0,1]
-<b>Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+<b>Output</b>: [0,1]
+<b>Explanation</b>: Because nums[0] + nums[1] == 9, we return [0, 1].
 </code>
 </pre>
 
