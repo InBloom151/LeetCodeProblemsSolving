@@ -1,7 +1,7 @@
 def preprocess(s: str) -> str:
     return '#' + '#'.join(s) + '#'
 
-def palindrom_sub(s: str) -> str:
+def palindrome_sub(s: str) -> str:
     if len(s) < 1:
         return ""
 
@@ -30,5 +30,5 @@ def palindrom_sub(s: str) -> str:
     return s[start_index:start_index + max_len]
 
 
-print(palindrom_sub("babad"))
-print(palindrom_sub("cbbd"))
+print(palindrome_sub("babad"))
+print(palindrome_sub("cbbd"))

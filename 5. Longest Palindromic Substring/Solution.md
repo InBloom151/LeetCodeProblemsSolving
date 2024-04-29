@@ -12,7 +12,7 @@ Here we use a Manacher's algorithm.
 def preprocess(s: str) -> str:
     return '#' + '#'.join(s) + '#'
 
-def palindrom_sub(s: str) -> str:
+def palindrome_sub(s: str) -> str:
     if len(s) < 1:
         return ""
 
@@ -43,152 +43,161 @@ def palindrom_sub(s: str) -> str:
 
 ### 2. TypeScript
 
-**Runtime:** `94 ms` faster than `82.74%` submissions  
-**Memory usage:** `56.1 MB` less than `69.60%` submissions  
+**Runtime:** `65 ms` faster than `99.58%` submissions  
+**Memory usage:** `54.1 MB` less than `62.54%` submissions  
 
 ``` typescript
-function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
-    const mergedArray = mergeSortedArrays(nums1, nums2);
-    const mergedLength = mergedArray.length;
-    if (mergedLength % 2 === 0) {
-        const mid = mergedLength / 2;
-        return (mergedArray[mid - 1] + mergedArray[mid]) / 2;
-    } else {
-        return mergedArray[Math.floor(mergedLength / 2)];
-    }
+function preprocess(s: string): string {
+    return "#" + s.split("").join("#") + "#";
 }
 
-function mergeSortedArrays(nums1: number[], nums2: number[]): number[] {
-    const merged: number[] = [];
-    let i = 0, j = 0;
+function palindromeSub(s: string): string {
+    if (s.length < 1) {
+        return "";
+    };
 
-    while (i < nums1.length && j < nums2.length) {
-        if (nums1[i] < nums2[j]) {
-            merged.push(nums1[i]);
-            i++;
-        } else {
-            merged.push(nums2[j]);
-            j++;
-        }
-    }
+    let processedS = preprocess(s);
+    let n = processedS.length;
+    let p = new Array(n).fill(0);
+    let c = 0;
+    let r = 0;
 
-    while (i < nums1.length) {
-        merged.push(nums1[i]);
-        i++;
-    }
+    for (let i = 1; i < n - 1; i++) {
+        let mirror = 2 * c - i;
 
-    while (j < nums2.length) {
-        merged.push(nums2[j]);
-        j++;
-    }
+        if (i < r) {
+            p[i] = Math.min(r - i, p[mirror]);
+        };
 
-    return merged;
-}
+        while (i + p[i] < n && i - (1 + p[i]) >= 0 && processedS[i + (1 + p[i])] == processedS[i - (1 + p[i])]) {
+            p[i] += 1;
+        };
+
+        if (i + p[i] > r) {
+            c = i;
+            r = i + p[i];
+        };
+    };
+
+    let maxLen = Math.max.apply(null, p);
+    let centerIndex = p.indexOf(maxLen);
+
+    let startIndex = Math.ceil((centerIndex - maxLen) / 2);
+    return s.slice(startIndex, startIndex + maxLen);
+};
 ```
 
 ### 3. GO
 
-**Runtime:** `3 ms` faster than `97.80%` submissions  
-**Memory usage:** `4.8 MB` less than `62.37%` submissions  
+**Runtime:** `0 ms` faster than `100.00%` submissions  
+**Memory usage:** `5.8 MB` less than `25.95%` submissions  
 
 ``` go
 import (
 	"math"
+	"strings"
 )
 
-func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	m, n := len(nums1), len(nums2)
-	if m > n {
-		return findMedianSortedArrays(nums2, nums1)
+
+func preprocess(s string) string {
+	return "#" + strings.Join(strings.Split(s, ""), "#") + "#"
+}
+
+func palindromSub(s string) string {
+	if len(s) < 1 {
+		return ""
 	}
 
-	imin, imax, halfLen := 0, m, (m+n+1)/2
-	var maxLeft, minRight int
+	processedS := preprocess(s)
+	n := len(processedS)
+	p := make([]int, n)
+	c, r := 0, 0
 
-	for imin <= imax {
-		i := (imin + imax) / 2
-		j := halfLen - i
+	for i := 1; i < n-1; i++ {
+		mirror := 2*c - i
 
-		if i < m && nums2[j-1] > nums1[i] {
-			imin = i + 1
-		} else if i > 0 && nums1[i-1] > nums2[j] {
-			imax = i - 1
-		} else {
-			if i == 0 {
-				maxLeft = nums2[j-1]
-			} else if j == 0 {
-				maxLeft = nums1[i-1]
-			} else {
-				maxLeft = int(math.Max(float64(nums1[i-1]), float64(nums2[j-1])))
-			}
+		if i < r {
+			p[i] = int(math.Min(float64(r-i), float64(p[mirror])))
+		}
 
-			if (m+n)%2 == 1 {
-				return float64(maxLeft)
-			}
+		for i+(1+p[i]) < n && i-(1+p[i]) >= 0 && processedS[i+(1+p[i])] == processedS[i-(1+p[i])] {
+			p[i]++
+		}
 
-			if i == m {
-				minRight = nums2[j]
-			} else if j == n {
-				minRight = nums1[i]
-			} else {
-				minRight = int(math.Min(float64(nums1[i]), float64(nums2[j])))
-			}
-
-			return float64(maxLeft+minRight) / 2.0
+		if i+p[i] > r {
+			c = i
+			r = i + p[i]
 		}
 	}
 
-	return 0.0
+	maxLen := 0
+	centerIndex := 0
+
+	for i, num := range p {
+		if num > maxLen {
+			maxLen = num
+			centerIndex = i
+		}
+	}
+
+	startIdx := (centerIndex - maxLen) / 2
+	return s[startIdx : startIdx+maxLen]
 }
 ```
 
 ### 4. Java
 
-**Runtime:** `1 ms` faster than `100.00%` submissions  
-**Memory usage:** `45.5 MB` less than `91.31%` submissions  
+**Runtime:** `11 ms` faster than `95.89%` submissions  
+**Memory usage:** `43.1 MB` less than `65.85%` submissions  
 
 ``` java
-class Solution {
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int totalLength = m + n;
-        
-        if (totalLength % 2 == 1) {
-            return findKthElement(nums1, nums2, totalLength / 2 + 1);
-        } else {
-            return (findKthElement(nums1, nums2, totalLength / 2) + findKthElement(nums1, nums2, totalLength / 2 + 1)) / 2.0;
+public class Solution {
+
+    public static String preprocess(String s) {
+        StringBuilder processed = new StringBuilder("#");
+        for (int i = 0; i < s.length(); i++) {
+            processed.append(s.charAt(i)).append("#");
         }
+        return processed.toString();
     }
-    
-    private int findKthElement(int[] nums1, int[] nums2, int k) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int index1 = 0, index2 = 0;
-        
-        while (true) {
-            if (index1 == m) {
-                return nums2[index2 + k - 1];
+
+    public static String palindromeSub(String s) {
+        if (s.length() < 1) {
+            return "";
+        }
+
+        String processedS = preprocess(s);
+        int n = processedS.length();
+        int[] P = new int[n];
+        int C = 0, R = 0;
+
+        for (int i = 1; i < n - 1; i++) {
+            int mirror = 2 * C - i;
+            if (i < R) {
+                P[i] = Math.min(R - i, P[mirror]);
             }
-            if (index2 == n) {
-                return nums1[index1 + k - 1];
+
+            while (i + (1 + P[i]) < n && i - (1 + P[i]) >= 0 && processedS.charAt(i + (1 + P[i])) == processedS.charAt(i - (1 + P[i]))) {
+                P[i]++;
             }
-            if (k == 1) {
-                return Math.min(nums1[index1], nums2[index2]);
-            }
-            
-            int halfK = k / 2;
-            int newIndex1 = Math.min(index1 + halfK, m) - 1;
-            int newIndex2 = Math.min(index2 + halfK, n) - 1;
-            
-            if (nums1[newIndex1] <= nums2[newIndex2]) {
-                k -= (newIndex1 - index1 + 1);
-                index1 = newIndex1 + 1;
-            } else {
-                k -= (newIndex2 - index2 + 1);
-                index2 = newIndex2 + 1;
+
+            if (i + P[i] > R) {
+                C = i;
+                R = i + P[i];
             }
         }
+
+        int maxLen = 0;
+        int centerIndex = 0;
+        for (int i = 0; i < n; i++) {
+            if (P[i] > maxLen) {
+                maxLen = P[i];
+                centerIndex = i;
+            }
+        }
+
+        int startIndex = (centerIndex - maxLen) / 2;
+        return s.substring(startIndex, startIndex + maxLen);
     }
 }
 ```
