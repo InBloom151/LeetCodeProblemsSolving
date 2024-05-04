@@ -1,47 +1,72 @@
-### This approach has a time complexity of `O(n)`
+### This approach has a time complexity of `O(1)`
 
 ### 1. Python
 
-**Runtime:** `510 ms` faster than `80.31%` submissions  
-**Memory usage:** `29.7 MB` less than `41.85%` submissions  
+**Runtime:** `28 ms` faster than `99.70%` submissions  
+**Memory usage:** `16.6 MB` less than `63.25%` submissions  
 
 ``` python
-def max_area(height: list[int]) -> int:
-    max_area = 0
-    left = 0
-    right = len(height) - 1
+def int_to_roman(num: int) -> str:
+    ASSOCIATIONS = {
+        1000: "M",
+        900: "CM",
+        500: "D",
+        400: "CD",
+        100: "C",
+        90: "XC",
+        50: "L",
+        40: "XL",
+        10: "X",
+        9: "IX",
+        5: "V",
+        4: "IV",
+        1: "I",
+    }
 
-    while left < right:
-        current_area = min(height[left], height[right]) * (right - left)
-        max_area = max(max_area, current_area)
+    result = ""
 
-        if height[left] < height[right]:
-            left += 1
-        else:
-            right -= 1
+    for k, v in ASSOCIATIONS.items():
+        while num >= k:
+            result += v
+            num -= k
 
-    return max_area
+    return result
 ```
 
 ### 2. TypeScript
 
-**Runtime:** `66 ms` faster than `83.11%` submissions  
-**Memory usage:** `58.4 MB` less than `99.15%` submissions  
+**Runtime:** `102 ms` faster than `94.75%` submissions  
+**Memory usage:** `57.3 MB` less than `40.66%` submissions  
 
 ``` typescript
-function maxArea(height: number[]): number {
-    let maxAreaValue = 0;
-    let left = 0;
-    let right = height.length - 1;
+function intToRoman(num: number): string {
+    const romanNumerals: [number, string][] = [
+        [1000, "M"],
+        [900, "CM"],
+        [500, "D"],
+        [400, "CD"],
+        [100, "C"],
+        [90, "XC"],
+        [50, "L"],
+        [40, "XL"],
+        [10, "X"],
+        [9, "IX"],
+        [5, "V"],
+        [4, "IV"],
+        [1, "I"],
+    ];
 
-    while(left < right) {
-        const currentArea = Math.min(height[left], height[right]) * (right - left);
-        maxAreaValue = Math.max(maxAreaValue, currentArea);
+    let result: string = '';
 
-        height[left] < height[right] ? ++left : --right;
+    for (let [value, roman] of romanNumerals) {
+        while (num >= value) {
+            result += roman;
+            num -= value;
+        }
+        if (num === 0) break; // Break if the number becomes zero
     }
 
-    return maxAreaValue;
+    return result;
 }
 ```
 
