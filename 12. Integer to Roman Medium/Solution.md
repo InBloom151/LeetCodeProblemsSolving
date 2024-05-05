@@ -72,36 +72,38 @@ function intToRoman(num: number): string {
 
 ### 3. GO
 
-**Runtime:** `53 ms` faster than `93.63%` submissions  
-**Memory usage:** `7.3 MB` less than `97.65%` submissions  
+**Runtime:** `0 ms` faster than `100.00%` submissions  
+**Memory usage:** `5.3 MB` less than `15.22%` submissions  
 
 ``` go
-func maxArea(height []int) int {
-    maxArea := 0
-    left, right := 0, len(height)-1
-    
-    for left < right {
-        area := min(height[left], height[right]) * (right - left)
-        
-        if area > maxArea {
-            maxArea = area
-        }
-        
-        if height[left] < height[right] {
-            left++
-        } else {
-            right--
-        }
-    }
-    
-    return maxArea
-}
+func intToRoman(num int) string {
 
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+	var associations = map[int]string{
+		1000: "M",
+		900:  "CM",
+		500:  "D",
+		400:  "CD",
+		100:  "C",
+		90:   "XC",
+		50:   "L",
+		40:   "XL",
+		10:   "X",
+		9:    "IX",
+		5:    "V",
+		4:    "IV",
+		1:    "I",
+	}
+
+	result := strings.Builder{}
+
+	for _, k := range []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1} {
+		for num >= k {
+			result.WriteString(associations[k])
+			num -= k
+		}
+	}
+
+	return result.String()
 }
 ```
 
