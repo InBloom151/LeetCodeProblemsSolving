@@ -109,27 +109,28 @@ func intToRoman(num int) string {
 
 ### 4. Java
 
-**Runtime:** `5 ms` faster than `71.01%` submissions  
-**Memory usage:** `57.7 MB` less than `62.10%` submissions  
+**Runtime:** `3 ms` faster than `97.07%` submissions  
+**Memory usage:** `43.9 MB` less than `94.41%` submissions  
 
 ``` java
-public class solution {
-    public static int maxArea(int[] height) {
-        int maxAreaValue = 0;
-        int left = 0;
-        int right = height.length - 1;
+class solution {
+    public static String intToRoman(int num) {
+        int[] nums = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romans = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-        while (left < right) {
-            int currentArea = Math.min(height[left], height[right]) * (right - left);
-            maxAreaValue = Math.max(maxAreaValue, currentArea);
+        StringBuilder result = new StringBuilder();
 
-            if (height[left] < height[right])
-                left++;
-            else
-                right--;
+        // Iterate through associations
+        for (int i = 0; i < nums.length; i++) {
+            int k = nums[i];
+            String v = romans[i];
+            while (num >= k) {
+                result.append(v);
+                num -= k;
+            }
         }
 
-        return maxAreaValue;
+        return result.toString();
     }
 }
 ```
