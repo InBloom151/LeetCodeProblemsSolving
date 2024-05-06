@@ -63,7 +63,7 @@ function intToRoman(num: number): string {
             result += roman;
             num -= value;
         }
-        if (num === 0) break; // Break if the number becomes zero
+        if (num === 0) break;
     }
 
     return result;
@@ -120,7 +120,6 @@ class solution {
 
         StringBuilder result = new StringBuilder();
 
-        // Iterate through associations
         for (int i = 0; i < nums.length; i++) {
             int k = nums[i];
             String v = romans[i];

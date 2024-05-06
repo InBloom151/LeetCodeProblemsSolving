@@ -22,7 +22,7 @@ function intToRoman(num: number): string {
             result += roman;
             num -= value;
         }
-        if (num === 0) break; // Break if the number becomes zero
+        if (num === 0) break;
     }
 
     return result;

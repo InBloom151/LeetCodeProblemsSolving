@@ -1,4 +1,4 @@
-public class solution {
+class solution {
     public static void main(String[] args) {
         System.out.println(myAtoi("42"));
         System.out.println(myAtoi(" -042"));

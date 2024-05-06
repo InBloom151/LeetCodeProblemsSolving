@@ -11,7 +11,6 @@ class solution {
 
         StringBuilder result = new StringBuilder();
 
-        // Iterate through associations
         for (int i = 0; i < nums.length; i++) {
             int k = nums[i];
             String v = romans[i];
