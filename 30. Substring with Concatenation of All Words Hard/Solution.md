@@ -1,4 +1,4 @@
-### This approach has a time complexity of `O(log(n))`
+### This approach has a time complexity of `O(n * m)`
 
 ### 1. Python
 
